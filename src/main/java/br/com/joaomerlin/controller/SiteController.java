@@ -14,4 +14,7 @@ public class SiteController {
 
     @GetMapping
     public String home(){return "index";}
+
+    @GetMapping("experiencia")
+    public String experiencia(){return "resume";}
 }
