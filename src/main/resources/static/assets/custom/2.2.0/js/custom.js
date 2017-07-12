@@ -23,7 +23,7 @@
     /** Window load handler **/
     $(window).load(function () {
         // Hide preloader
-        $('#preloader').velocity({ opacity: 0 }, { visibility: "hidden", duration: 500 });
+        $('#preloader').velocity({opacity: 0}, {visibility: "hidden", duration: 500});
 
         // Fix menu rendering
         if (scrollRevealEnabled()) {
@@ -55,10 +55,16 @@
             var backTopEvent = false;
             var $backTop = $('#back-top');
             $backTop.on('click', function () {
-                $backTop.velocity({ bottom: "-=20px", opacity: 0 }, { visibility: "hidden" });
-                $("body").velocity("scroll", { duration: 1000,
-                    begin: function() { backTopEvent = true },
-                    complete: function() { backTopEvent = false; backTopVisible = false }
+                $backTop.velocity({bottom: "-=20px", opacity: 0}, {visibility: "hidden"});
+                $("body").velocity("scroll", {
+                    duration: 1000,
+                    begin: function () {
+                        backTopEvent = true
+                    },
+                    complete: function () {
+                        backTopEvent = false;
+                        backTopVisible = false
+                    }
                 });
                 return false;
             });
@@ -68,10 +74,10 @@
                     var scrollTop = window.pageYOffset;
                     if (scrollTop > scrollTrigger && !backTopVisible) {
                         backTopVisible = true;
-                        $backTop.velocity({ bottom: '+=20px', opacity: 1 }, { visibility: 'visible', duration: 600 });
+                        $backTop.velocity({bottom: '+=20px', opacity: 1}, {visibility: 'visible', duration: 600});
                     } else if (scrollTop <= scrollTrigger && backTopVisible && !backTopEvent) {
                         backTopVisible = false;
-                        $backTop.velocity({ bottom: "-=20px", opacity: 0 }, { visibility: "hidden", duration: 600 });
+                        $backTop.velocity({bottom: "-=20px", opacity: 0}, {visibility: "hidden", duration: 600});
                     }
                 };
             backToTop();
@@ -108,8 +114,8 @@
 
                 $(document).on('pjax:beforeReplace', function () {
                     $('.content-wrap')
-                        .velocity({ opacity: 0 }, { duration: 0 })
-                        .velocity({ opacity: 1 }, { duration: 300, easing: [ 0, 1, 1, 0 ] });
+                        .velocity({opacity: 0}, {duration: 0})
+                        .velocity({opacity: 1}, {duration: 300, easing: [0, 1, 1, 0]});
                 });
             }
 
@@ -143,22 +149,22 @@
         /** Script for Owl Carousel section **/
         (function () {
             if ($('[data-section="owl-carousel"]').length) {
-                $('[data-section="owl-carousel"]').imagesLoaded( function() {
+                $('[data-section="owl-carousel"]').imagesLoaded(function () {
                     $('.owl-carousel').owlCarousel({
-                        items:1,
-                        loop:true,
-                        nav:true,
+                        items: 1,
+                        loop: true,
+                        nav: true,
                         navText: [
                             "<i class='fa fa-angle-left' aria-hidden='true'></i>",
                             "<i class='fa fa-angle-right' aria-hidden='true'></i>"
                         ],
                         dots: true,
-                        margin:0,
+                        margin: 0,
                         autoplay: true,
                         autoplayTimeout: 11000,
                         autoplayHoverPause: true,
                         autoplaySpeed: 1250,
-                        autoHeight:true
+                        autoHeight: true
                     });
                 });
             }
@@ -167,7 +173,7 @@
         /** Script for Progress Bars **/
         (function () {
             if ($('[data-progressbar]').length) {
-                $('[data-progressbar]').each(function(key, bar) {
+                $('[data-progressbar]').each(function (key, bar) {
                     var data = progressbarConfig($(bar).data());
                     switch (data.progressbar) {
                         case 'line':
@@ -200,7 +206,7 @@
                     var delay = 50;
                     $('[data-section="bar-skills"] .progress-bar').each(function () {
                         var valuenow = $(this).attr('aria-valuenow');
-                        $(this).velocity({ width: valuenow + "%" }, { duration: 400, easing: "swing", delay: delay });
+                        $(this).velocity({width: valuenow + "%"}, {duration: 400, easing: "swing", delay: delay});
                         delay += 150;
                     });
                 };
@@ -304,7 +310,7 @@
                             $(formMessages).addClass('alert alert-success');
 
                             // Set the message text.
-                            $(formMessages).text(response);
+                            $(formMessages).text('Obrigado! Sua mensagem foi enviada.');
 
                             // Clear the form.
                             $('#name').val('');
@@ -317,11 +323,7 @@
                             $(formMessages).addClass('alert alert-danger');
 
                             // Set the message text.
-                            if (data.responseText !== '') {
-                                $(formMessages).text(data.responseText);
-                            } else {
-                                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-                            }
+                            $(formMessages).text('Oops! Ocorreu um erro e sua mensagem não pode ser enviada.');
                         });
                 });
             }
@@ -361,7 +363,7 @@
 
                     // Create a map object, and include the MapTypeId to add
                     // to the map type control.
-                    var $latlng = new google.maps.LatLng(52.5075419, 13.4261419),
+                    var $latlng = new google.maps.LatLng(-26.2268909, -52.6764259),
                         $mapOptions = {
                             zoom: 13,
                             center: $latlng,
@@ -417,8 +419,8 @@
 
         window.sr = window.sr || ScrollReveal();
 
-        $.each(items, function(itemKey, reveal) {
-            $(reveal.selector).each(function(index, elem) {
+        $.each(items, function (itemKey, reveal) {
+            $(reveal.selector).each(function (index, elem) {
                 var data = elem.dataset;
 
                 var revealData = {
@@ -433,11 +435,13 @@
                     scale: (typeof data.animationScale != "undefined") ? parseFloat(data.animationScale)
                         : (reveal.data.scale || 1),
                     rotate: (typeof data.animationRotate != "undefined") ? data.animationRotate
-                        : (reveal.data.rotate || { x: 0, y: 0, z: 0 }),
+                        : (reveal.data.rotate || {x: 0, y: 0, z: 0}),
                     easing: (typeof data.animationEasing != "undefined") ? data.animationEasing
                         : (reveal.data.easing || 'cubic-bezier(1.000, 1.000, 1.000, 1.000)'),
                     mobile: false,
-                    afterReveal: function(elem) { $(elem).trigger('afterReveal') }
+                    afterReveal: function (elem) {
+                        $(elem).trigger('afterReveal')
+                    }
                 };
 
                 window.sr.reveal(elem, revealData);
@@ -463,10 +467,10 @@
             text: {
                 autoStyleContainer: false
             },
-            from: (typeof data.progressbarFrom != "undefined") ? data.progressbarFrom : { color: '#aaa', width: 1 },
-            to: (typeof data.progressbarTo != "undefined") ? data.progressbarTo : { color: '#333', width: 4 },
+            from: (typeof data.progressbarFrom != "undefined") ? data.progressbarFrom : {color: '#aaa', width: 1},
+            to: (typeof data.progressbarTo != "undefined") ? data.progressbarTo : {color: '#333', width: 4},
             // Set default step function for all animate calls
-            step: function(state, circle) {
+            step: function (state, circle) {
                 circle.path.setAttribute('stroke', state.color);
                 circle.path.setAttribute('stroke-width', state.width);
 
@@ -484,13 +488,13 @@
 
 /** Google Analytics **/
 /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-// set yor id
-ga('create', 'UA-40696437-5', 'auto');
-ga('send', 'pageview');*/
+ // set yor id
+ ga('create', 'UA-40696437-5', 'auto');
+ ga('send', 'pageview');*/
 
 
 
