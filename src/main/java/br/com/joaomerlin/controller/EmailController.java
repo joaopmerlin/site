@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("feedback")
-public class FeedbackController {
+@RequestMapping("email")
+public class EmailController {
 
     @Autowired private MailSender mailSender;
 

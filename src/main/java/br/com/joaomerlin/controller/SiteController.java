@@ -15,25 +15,25 @@ public class SiteController {
 
     @GetMapping
     @Cacheable("index")
-    public String index(){return "index";}
+    public String index() {
+        return "index";
+    }
 
     @GetMapping("experiencia")
     @Cacheable("experiencia")
-    public String experiencia(){return "experiencia";}
-
-    @GetMapping("competencias")
-    @Cacheable("competencias")
-    public String competencias(){return "competencias";}
+    public String experiencia() {
+        return "experiencia";
+    }
 
     @GetMapping("contato")
     @Cacheable("contato")
-    public String contato(){return "contato";}
-
-    @GetMapping("feedback")
-    @Cacheable("feedback")
-    public String feedback(){return "feedback";}
+    public String contato() {
+        return "contato";
+    }
 
     @GetMapping("blog")
     @Cacheable("blog")
-    public String blog(){return "blog";}
+    public String blog() {
+        return "blog";
+    }
 }

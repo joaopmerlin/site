@@ -330,7 +330,7 @@
         })();
 
         /** Google map **/
-        (function () {
+        /*(function () {
             if ($('[data-section="map"]').length) {
 
                 window.initGmap = function () {
@@ -398,7 +398,7 @@
 
                 loadScript('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initGmap', 'gmapSrc');
             }
-        })();
+        })();*/
 
     }
 

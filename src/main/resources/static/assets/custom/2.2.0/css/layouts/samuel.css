@@ -1,6 +1,6 @@
 /* Main Photo */
 .photo-01 {
-  background: url("/images/foto.jpg");
+  background: url("/images/foto2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,15 +15,16 @@
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out; }
 
-.timeline-samuel-01 {
-  background: url("../../images/layouts/samuel/timeline/01.jpg");
+.timeline-viasoft {
+  background: url("/images/viasoft.jpg");
   background-position: center;
   background-size: cover; }
 
-.timeline-samuel-02 {
-  background: url("../../images/layouts/samuel/timeline/02.jpg");
+.timeline-adm {
+  background: url("/images/logoadm.png");
   background-position: center;
-  background-size: cover; }
+  background-size: contain;
+  background-repeat: no-repeat; }
 
 .timeline-samuel-03 {
   background: url("../../images/layouts/samuel/timeline/03.jpg");
