@@ -44,6 +44,16 @@
 <!--Pre-Loader-->
 <div id="preloader"></div>
 
+<!--Facebook-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.9&appId=1341225242663275";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <header>
     <section id="top-navigation" class="container-fluid nopadding">
         <div class="row nopadding ident ui-bg-color01">
@@ -160,21 +170,25 @@
                 <a href="javascript:void(0)" class="btn btn-wh-trans btn-xs">OK</a>
                 <div class="divider-dynamic"></div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <h5 class="font-accident-two-bold uppercase">Follow me</h5>
                 <div class="follow">
                     <ul class="list-inline social">
-                        <li><a href="javascript:void(0)" class="rst-icon-facebook"><i class="fa fa-facebook"></i></a>
-                        </li>
+                        <li><a href="javascript:void(0)" class="rst-icon-facebook"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="javascript:void(0)" class="rst-icon-twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0)" class="rst-icon-pinterest"><i class="fa fa-pinterest"></i></a>
-                        </li>
-                        <li><a href="javascript:void(0)" class="rst-icon-instagram"><i class="fa fa-instagram"></i></a>
-                        </li>
+                        <li><a href="javascript:void(0)" class="rst-icon-instagram"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="javascript:void(0)" class="rst-icon-youtube"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
                 <div class="divider-dynamic"></div>
+            </div>
+            <div class="col-sm-3">
+                <div class="fb-follow"
+                     data-colorscheme="dark"
+                     data-href="https://www.facebook.com/joao.p.merlin"
+                     data-layout="standard"
+                     data-size="small"
+                     data-show-faces="true"></div>
             </div>
         </div>
         <div class="dividewhite1"></div>
